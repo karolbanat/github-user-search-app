@@ -1,0 +1,23 @@
+.finder-form {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding-block: var(--spacing-em-200);
+	padding-left: clamp(var(--spacing-em-400), 4vw, var(--spacing-em-600));
+	padding-right: var(--spacing-em-200);
+	background-color: var(--bg-card);
+	border-radius: var(--borr-600);
+
+	&__input {
+		padding-block: var(--spacing-em-200);
+		flex-grow: 1;
+		font-size: var(--fz-input);
+		color: var(--clr-input-text);
+		background-color: transparent;
+		border: none;
+
+		&::placeholder {
+			color: var(--clr-placeholder);
+		}
+	}
+}

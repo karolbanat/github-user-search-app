@@ -1,0 +1,21 @@
+.toggle-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 1.6rem;
+	padding: var(--spacing-em-200) var(--spacing-em-400);
+	font-size: var(--fz-theme-switch);
+	font-weight: var(--fw-700);
+	letter-spacing: 2px;
+	line-height: 1.1;
+	text-transform: uppercase;
+	color: var(--clr-theme-switch);
+	background: none;
+	border: none;
+	cursor: pointer;
+	transition: color 0.35s ease-in-out;
+
+	&:hover,
+	&:focus-visible {
+		color: var(--clr-theme-switch-hover);
+	}
+}

@@ -1,0 +1,44 @@
+@use '../base/mixins';
+
+.finder-card {
+	--padding-min: var(--spacing-rem-400);
+	--padding-max: calc(var(--padding-min) * 2);
+
+	display: grid;
+	gap: clamp(var(--spacing-rem-400), 4vw, var(--spacing-rem-550));
+	padding: clamp(var(--padding-min), 6vw, var(--padding-max));
+	background-color: var(--bg-card);
+	border-radius: var(--borr-600);
+
+	// sections
+	&__header {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-em-200);
+		line-height: 1.1;
+
+		@include mixins.mq(large) {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+
+	&__bio {
+		font-size: var(--fz-400);
+	}
+
+	// elements
+	&__username {
+		font-size: var(--fz-username);
+		color: var(--clr-username);
+	}
+
+	&__tag {
+		font-size: var(--fz-400);
+		color: var(--clr-user-tag);
+	}
+
+	&__joined {
+		font-size: var(--fz-400);
+	}
+}

@@ -1,0 +1,10 @@
+.link {
+	font-size: var(--fz-400);
+	text-decoration: none;
+	color: var(--clr-text);
+
+	&:hover,
+	&:focus-visible {
+		text-decoration: underline;
+	}
+}

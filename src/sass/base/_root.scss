@@ -41,16 +41,23 @@
 	// -- font size exceptions
 	--fz-theme-switch: var(--fz-400);
 	--fz-input: var(--fz-400);
-	--fz-user-name: var(--fz-600);
+	--fz-username: var(--fz-600);
 
 	@include mixins.mq(medium) {
 		--fz-theme-switch: 1.3rem;
 		--fz-input: 1.8rem;
-		--fz-user-name: 2.6rem;
+		--fz-username: 2.6rem;
 	}
 
 	// border radius
 	@each $radius, $value in variables.$border-radius {
 		--borr-#{$radius}: #{$value};
+	}
+
+	// spacings
+	@each $unit, $sizes in variables.$spacings {
+		@each $size, $value in $sizes {
+			--spacing-#{$unit}-#{$size}: #{$value};
+		}
 	}
 }

@@ -1,0 +1,23 @@
+@use '../base/mixins';
+
+.links {
+	display: grid;
+	gap: var(--spacing-em-400);
+
+	@include mixins.mq(medium) {
+		grid-auto-flow: column;
+		grid-template-rows: repeat(2, 1fr);
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-em-300);
+
+		& > img {
+			width: 2rem;
+			aspect-ratio: 1;
+			object-fit: contain;
+		}
+	}
+}

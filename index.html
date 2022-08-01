@@ -35,9 +35,9 @@
     </div>
 
     <main>
-        <div class="container">
-            <section aria-label="GitHub user finder"
-                     class="finder">
+        <section aria-label="GitHub user finder"
+                 class="finder">
+            <div class="container flow">
                 <form class="finder-form">
                     <img src="./dist/assets/icon-search.svg"
                          alt="">
@@ -51,8 +51,11 @@
                     <img src=""
                          alt="">
                     <header class="finder-card__header">
-                        <h2 class="finder-card__username">The Octocat</h2>
-                        <p class="finder-card__tag">@octocat</p>
+                        <div class="flow"
+                             style="--flow-spacer: .25em">
+                            <h2 class="finder-card__username">The Octocat</h2>
+                            <p class="finder-card__tag">@octocat</p>
+                        </div>
                         <p class="finder-card__joined">Joined <time datetime="2011-01-25">25 Jan 2011</time></p>
                     </header>
 
@@ -66,15 +69,15 @@
                     <section aria-label="User statistics"
                              class="stats">
                         <ul class="stats__list">
-                            <li class="stats__item">
+                            <li class="stats__item | flow">
                                 <p class="stats__label">Repos</p>
                                 <p class="stats__stat">8</p>
                             </li>
-                            <li class="stats__item">
+                            <li class="stats__item | flow">
                                 <p class="stats__label">Followers</p>
                                 <p class="stats__stat">3938</p>
                             </li>
-                            <li class="stats__item">
+                            <li class="stats__item | flow">
                                 <p class="stats__label">Following</p>
                                 <p class="stats__stat">9</p>
                             </li>
@@ -110,8 +113,8 @@
                         </ul>
                     </footer>
                 </article>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
 
 </body>

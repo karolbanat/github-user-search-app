@@ -1,0 +1,15 @@
+.button {
+	padding: var(--spacing-em-200) var(--spacing-em-300);
+	font-weight: var(--fw-700);
+	color: var(--clr-neutral-100-light);
+	background-color: var(--clr-accent-700-light);
+	border: none;
+	border-radius: var(--borr-400);
+	cursor: pointer;
+	transition: background-color 0.35s ease-in-out;
+
+	&:hover,
+	&:focus-visible {
+		background-color: var(--clr-accent-600-light);
+	}
+}

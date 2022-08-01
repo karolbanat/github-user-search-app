@@ -1,0 +1,11 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: var(--spacing-rem-550);
+
+	&__logo {
+		font-size: var(--fz-700);
+		color: var(--clr-logo);
+	}
+}

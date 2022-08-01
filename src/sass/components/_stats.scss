@@ -1,0 +1,35 @@
+@use '../base/mixins';
+
+.stats {
+	--padding-block: var(--spacing-em-400);
+	--padding-inline: clamp(var(--padding-block), 4vw, calc(var(--padding-block) * 2));
+
+	padding-inline: var(--padding-inline);
+	padding-block: var(--padding-block);
+	background-color: var(--bg-body);
+	border-radius: var(--borr-400);
+
+	&__list {
+		display: grid;
+		grid-auto-flow: column;
+		text-align: center;
+
+		@include mixins.mq(medium) {
+			text-align: initial;
+		}
+	}
+
+	&__item {
+		--flow-spacer: 0.5em;
+		line-height: 1.1;
+	}
+
+	&__label {
+		font-size: var(--fz-400);
+	}
+
+	&__stat {
+		font-size: var(--fz-600);
+		font-weight: var(--fw-700);
+	}
+}
