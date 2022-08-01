@@ -14,7 +14,7 @@ body {
 	--bg-stats: var(--bg-body);
 	--clr-stat-number: var(--clr-username);
 
-	&[data-theme-dark] {
+	&[data-theme='dark'] {
 		--bg-body: var(--clr-primary-700-dark);
 		--clr-logo: var(--clr-neutral-100-dark);
 		--clr-text: var(--clr-neutral-100-dark);

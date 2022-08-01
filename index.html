@@ -26,19 +26,93 @@
 
 <body>
 
-    devfinder
+    <div class="container">
+        <header class="header">
+            <h1 class="header__logo">devfinder</h1>
+            <button class="toggle-btn"><span>Dark</span> <img src="./dist/assets/icon-moon.svg"
+                     alt=""></button>
+        </header>
+    </div>
 
-    Light
-    Dark
+    <main>
+        <div class="container">
+            <section aria-label="GitHub user finder"
+                     class="finder">
+                <form class="finder-form">
+                    <img src="./dist/assets/icon-search.svg"
+                         alt="">
+                    <input type="text"
+                           placeholder="Search GitHub username..."
+                           class="finder-form__input">
+                    <button type="submit"
+                            class="button">Search</button>
+                </form>
+                <article class="finder-card">
+                    <img src=""
+                         alt="">
+                    <header class="finder-card__header">
+                        <h2 class="finder-card__username">The Octocat</h2>
+                        <p class="finder-card__tag">@octocat</p>
+                        <p class="finder-card__joined">Joined <time datetime="2011-01-25">25 Jan 2011</time></p>
+                    </header>
 
-    Search GitHub username...
-    Search
+                    <section aria-label="User bio"
+                             class="finder-card__bio">
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+                            odio.
+                            Quisque volutpat mattis eros.</p>
+                    </section>
 
-    Joined
+                    <section aria-label="User statistics"
+                             class="stats">
+                        <ul class="stats__list">
+                            <li class="stats__item">
+                                <p class="stats__label">Repos</p>
+                                <p class="stats__stat">8</p>
+                            </li>
+                            <li class="stats__item">
+                                <p class="stats__label">Followers</p>
+                                <p class="stats__stat">3938</p>
+                            </li>
+                            <li class="stats__item">
+                                <p class="stats__label">Following</p>
+                                <p class="stats__stat">9</p>
+                            </li>
+                        </ul>
+                    </section>
 
-    Repos
-    Followers
-    Following
+                    <footer class="finder-card__footer">
+                        <ul class="links">
+                            <li class="links__item">
+                                <img src="./dist/assets/icon-location.svg"
+                                     alt="">
+                                <a href="#"
+                                   class="link">San Francisco</a>
+                            </li>
+                            <li class="links__item">
+                                <img src="./dist/assets/icon-website.svg"
+                                     alt="">
+                                <a href="#"
+                                   class="link">https://github.blog</a>
+                            </li>
+                            <li class="links__item">
+                                <img src="./dist/assets/icon-twitter.svg"
+                                     alt="">
+                                <a href="#"
+                                   class="link">Not Available</a>
+                            </li>
+                            <li class="links__item">
+                                <img src="./dist/assets/icon-company.svg"
+                                     alt="">
+                                <a href="#"
+                                   class="link">@github</a>
+                            </li>
+                        </ul>
+                    </footer>
+                </article>
+            </section>
+        </div>
+    </main>
 
 </body>
 
