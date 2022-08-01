@@ -1,0 +1,56 @@
+@use './variables';
+@use './mixins';
+
+:root {
+	// colors
+	@each $theme, $colors in variables.$themes {
+		@each $color, $shades in $colors {
+			@each $shade, $value in $shades {
+				--clr-#{$color}-#{$shade}-#{$theme}: #{$value};
+			}
+		}
+	}
+
+	// shadow
+	--shadow-light: 0 1.6rem 3rem hsl(227 46% 50% / 0.2);
+	--shadow-dark: none;
+
+	// font families
+	--ff-primary: 'Space Mono', monospace;
+
+	// font wieghts
+	@each $font-weight, $value in variables.$font-weights {
+		--fw-#{$font-weight}: #{$value};
+	}
+
+	// font sizes
+	@each $screen, $sizes in variables.$font-sizes {
+		@if $screen == small {
+			@each $size, $value in $sizes {
+				--fz-#{$size}: #{$value};
+			}
+		} @else {
+			@include mixins.mq($screen) {
+				@each $size, $value in $sizes {
+					--fz-#{$size}: #{$value};
+				}
+			}
+		}
+	}
+
+	// -- font size exceptions
+	--fz-theme-switch: var(--fz-400);
+	--fz-input: var(--fz-400);
+	--fz-user-name: var(--fz-600);
+
+	@include mixins.mq(medium) {
+		--fz-theme-switch: 1.3rem;
+		--fz-input: 1.8rem;
+		--fz-user-name: 2.6rem;
+	}
+
+	// border radius
+	@each $radius, $value in variables.$border-radius {
+		--borr-#{$radius}: #{$value};
+	}
+}

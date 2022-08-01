@@ -1,0 +1,42 @@
+body {
+	// stage setup
+	--bg-body: var(--clr-neutral-200-light);
+	--clr-text: var(--clr-primary-700-light);
+	--clr-logo: var(--clr-neutral-800-light);
+	--bg-card: var(--clr-neutral-100-light);
+	--clr-username: var(--clr-neutral-700-light);
+	--clr-user-tag: var(--clr-accent-700-light);
+
+	--clr-theme-switch: var(--clr-text);
+	--clr-theme-switch-hover: var(--clr-logo);
+	--clr-placeholder: var(--clr-text);
+	--clr-input-text: var(--clr-logo);
+	--bg-stats: var(--bg-body);
+	--clr-stat-number: var(--clr-username);
+
+	&[data-theme-dark] {
+		--bg-body: var(--clr-primary-700-dark);
+		--clr-logo: var(--clr-neutral-100-dark);
+		--clr-text: var(--clr-neutral-100-dark);
+		--bg-card: var(--clr-neutral-100-dark);
+		--clr-username: var(--clr-primary-400-dark);
+		--clr-user-tag: var(--clr-neutral-100-dark);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		--bg-body: var(--clr-primary-700-dark);
+		--clr-logo: var(--clr-neutral-100-dark);
+		--clr-text: var(--clr-neutral-100-dark);
+		--bg-card: var(--clr-neutral-100-dark);
+		--clr-username: var(--clr-primary-400-dark);
+		--clr-user-tag: var(--clr-neutral-100-dark);
+
+		--clr-theme-switch-hover: var(--clr-neutral-300-dark);
+	}
+}
+
+body {
+	font-family: var(--ff-primary);
+	background-color: var(--bg-body);
+	color: var(--clr-text);
+}
