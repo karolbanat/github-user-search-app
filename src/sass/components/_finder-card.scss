@@ -6,13 +6,25 @@
 
 	display: grid;
 	gap: clamp(var(--spacing-rem-400), 4vw, var(--spacing-rem-550));
+	grid-template-columns: auto 1fr;
+
 	padding: clamp(var(--padding-min), 6vw, var(--padding-max));
 	background-color: var(--bg-card);
 	border-radius: var(--borr-600);
 
+	& > section,
+	& > footer {
+		grid-column: span 2;
+
+		@include mixins.mq(large) {
+			grid-column: 2;
+		}
+	}
+
 	// sections
 	&__header {
 		display: flex;
+		justify-content: center;
 		flex-direction: column;
 		gap: var(--spacing-em-200);
 		line-height: 1.1;
@@ -28,6 +40,14 @@
 	}
 
 	// elements
+	&__avatar {
+		width: clamp(7rem, 20vw, 11.5rem);
+
+		@include mixins.mq(large) {
+			grid-row: 1 / span 4;
+		}
+	}
+
 	&__username {
 		font-size: var(--fz-username);
 		color: var(--clr-username);
@@ -39,6 +59,7 @@
 	}
 
 	&__joined {
+		margin-top: 0.25em;
 		font-size: var(--fz-400);
 	}
 }
