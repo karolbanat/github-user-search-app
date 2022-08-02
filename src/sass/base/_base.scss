@@ -22,15 +22,15 @@ body {
 		--clr-username: var(--clr-neutral-100-dark);
 	}
 
-	@media (prefers-color-scheme: dark) {
-		--bg-body: var(--clr-primary-700-dark);
-		--clr-logo: var(--clr-neutral-100-dark);
-		--clr-text: var(--clr-neutral-100-dark);
-		--bg-card: var(--clr-primary-400-dark);
-		--clr-username: var(--clr-neutral-100-dark);
+	// @media (prefers-color-scheme: dark) {
+	// 	--bg-body: var(--clr-primary-700-dark);
+	// 	--clr-logo: var(--clr-neutral-100-dark);
+	// 	--clr-text: var(--clr-neutral-100-dark);
+	// 	--bg-card: var(--clr-primary-400-dark);
+	// 	--clr-username: var(--clr-neutral-100-dark);
 
-		--clr-theme-switch-hover: var(--clr-neutral-300-dark);
-	}
+	// 	--clr-theme-switch-hover: var(--clr-neutral-300-dark);
+	// }
 }
 
 body {

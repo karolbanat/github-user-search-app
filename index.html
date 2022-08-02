@@ -24,7 +24,7 @@
     <title>Frontend Mentor | GitHub user search app</title>
 </head>
 
-<body>
+<body data-theme="light">
 
     <div class="container">
         <header class="header">
@@ -43,26 +43,32 @@
                          alt="">
                     <input type="text"
                            placeholder="Search GitHub username..."
+                           id="finder-input"
                            class="finder-form__input">
                     <button type="submit"
+                            id="finder-submit"
                             class="button">Search</button>
                 </form>
                 <article class="finder-card">
-                    <img src="./dist/assets/favicon-32x32.png"
+                    <img src=""
                          alt=""
+                         id="card-avatar"
                          class="finder-card__avatar">
                     <header class="finder-card__header">
                         <div class="flow"
                              style="--flow-spacer: .25em">
-                            <h2 class="finder-card__username">The Octocat</h2>
-                            <p class="finder-card__tag">@octocat</p>
+                            <h2 id="card-name"
+                                class="finder-card__username">The Octocat</h2>
+                            <p id="card-login"
+                               class="finder-card__tag">@octocat</p>
                         </div>
-                        <p class="finder-card__joined">Joined <time datetime="2011-01-25">25 Jan 2011</time></p>
+                        <p class="finder-card__joined">Joined <time id="card-date-joined"
+                                  datetime="2011-01-25">25 Jan 2011</time></p>
                     </header>
 
                     <section aria-label="User bio"
                              class="finder-card__bio">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+                        <p id="card-bio">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
                             odio.
                             Quisque volutpat mattis eros.</p>
                     </section>
@@ -72,15 +78,18 @@
                         <ul class="stats__list">
                             <li class="stats__item | flow">
                                 <p class="stats__label">Repos</p>
-                                <p class="stats__stat">8</p>
+                                <p id="card-repos"
+                                   class="stats__stat">8</p>
                             </li>
                             <li class="stats__item | flow">
                                 <p class="stats__label">Followers</p>
-                                <p class="stats__stat">3938</p>
+                                <p id="card-followers"
+                                   class="stats__stat">3938</p>
                             </li>
                             <li class="stats__item | flow">
                                 <p class="stats__label">Following</p>
-                                <p class="stats__stat">9</p>
+                                <p id="card-following"
+                                   class="stats__stat">9</p>
                             </li>
                         </ul>
                     </section>
@@ -90,25 +99,27 @@
                             <li class="links__item">
                                 <img src="./dist/assets/icon-location.svg"
                                      alt="">
-                                <a href="#"
-                                   class="link">San Francisco</a>
+                                <p id="card-location">San Francisco</p>
                             </li>
                             <li class="links__item">
                                 <img src="./dist/assets/icon-website.svg"
                                      alt="">
                                 <a href="#"
+                                   id="card-blog"
                                    class="link">https://github.blog</a>
                             </li>
                             <li class="links__item">
                                 <img src="./dist/assets/icon-twitter.svg"
                                      alt="">
                                 <a href="#"
+                                   id="card-twitter"
                                    class="link">Not Available</a>
                             </li>
                             <li class="links__item">
                                 <img src="./dist/assets/icon-company.svg"
                                      alt="">
                                 <a href="#"
+                                   id="card-company"
                                    class="link">@github</a>
                             </li>
                         </ul>
@@ -118,6 +129,7 @@
         </section>
     </main>
 
+    <script src="./dist/js/main.min.js"></script>
 </body>
 
 </html>
