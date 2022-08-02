@@ -1,4 +1,5 @@
 .finder-form {
+	position: relative;
 	display: flex;
 	align-items: center;
 	gap: 1rem;
@@ -18,6 +19,20 @@
 
 		&::placeholder {
 			color: var(--clr-placeholder);
+		}
+	}
+
+	&__error {
+		position: absolute;
+		top: -1.5em;
+		right: var(--spacing-em-300);
+		display: none;
+		font-size: var(--fz-400);
+		font-weight: var(--fw-700);
+		color: var(--clr-accent-400-light);
+
+		&[data-visible] {
+			display: inline-block;
 		}
 	}
 }

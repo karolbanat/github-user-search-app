@@ -2,6 +2,7 @@ let toggleThemeBtn;
 
 let finderInput;
 let finderSubmitBtn;
+let finderError;
 
 let cardAvatar, cardName, cardLogin, cardDateJoined;
 let cardBio;
@@ -9,17 +10,20 @@ let cardRepos, cardFollowers, cardFollowing;
 let cardLocation, cardBlog, cardTwitter, cardCompany;
 
 const API_URL_BASE = 'https://api.github.com/users/';
-const defaultUser = 'octocat';
-const defaultBio = 'This profile has no bio.';
-const defaultLinkText = 'Not Available';
+const TWITTER_URL_BASE = 'http://twitter.com/';
+const GITHUB_URL_BASE = 'https://github.com/';
 
-const moonIcon = './dist/assets/icon-moon.svg';
-const sunIcon = './dist/assets/icon-sun.svg';
+const DEFAULT_USERNAME = 'octocat';
+const DEFAULT_BIO = 'This profile has no bio.';
+const DEFAULT_LINK_TEXT = 'Not Available';
+
+const MOON_ICON = './dist/assets/icon-moon.svg';
+const SUN_ICON = './dist/assets/icon-sun.svg';
 
 const main = () => {
-	setOnLoadTheme();
 	prepareDOMElements();
 	prepareDOMEvents();
+	setOnLoadTheme();
 	setToggleBtnTheme();
 	loadDefaultUser();
 };
@@ -29,6 +33,7 @@ const prepareDOMElements = () => {
 
 	finderInput = document.querySelector('#finder-input');
 	finderSubmitBtn = document.querySelector('#finder-submit');
+	finderError = document.querySelector('#finder-error');
 
 	cardAvatar = document.querySelector('#card-avatar');
 	cardName = document.querySelector('#card-name');
@@ -54,24 +59,24 @@ const prepareDOMEvents = () => {
 // finder data setting
 const handleFinderSubmit = (e) => {
 	e.preventDefault();
-	console.log(finderInput.value);
+	finderError.removeAttribute('data-visible');
 	if (finderInput.value) loadUser(finderInput.value);
 };
 
 const loadDefaultUser = () => {
-	loadUser(defaultUser);
+	loadUser(DEFAULT_USERNAME);
 };
 
 const loadUser = (username) => {
 	const url = `${API_URL_BASE}${username}`;
 	fetch(url)
 		.then((res) => {
-			if (!res.ok) throw new Error('err');
+			if (!res.ok) throw new Error();
 			return res.json();
 		})
 		.then((res) => setData(res))
 		.catch((error) => {
-			//display error message
+			finderError.setAttribute('data-visible', 'visible');
 		});
 };
 
@@ -140,7 +145,13 @@ const formatMonthNumber = (monthNumber) => {
 };
 
 const setBio = (bio) => {
-	cardBio.innerText = bio ? bio : defaultBio;
+	if (bio) {
+		cardBio.innerText = bio;
+		cardBio.classList.remove('faded');
+		return;
+	}
+	cardBio.innerText = DEFAULT_BIO;
+	cardBio.classList.add('faded');
 };
 
 const setStatistics = (repos, followers, following) => {
@@ -162,7 +173,12 @@ const setFollowing = (following) => {
 };
 
 const setLocation = (location) => {
-	cardLocation.innerText = location || defaultLinkText;
+	if (location) {
+		cardLocation.innerText = location;
+		cardLocation.classList.remove('faded');
+	}
+	cardLocation.innerText = DEFAULT_LINK_TEXT;
+	cardLocation.classList.add('faded');
 };
 
 const setBlog = (blog) => {
@@ -170,6 +186,7 @@ const setBlog = (blog) => {
 		cardBlog.innerText = blog;
 		cardBlog.setAttribute('href', blog.startsWith('https://') || blog.startsWith('http://') ? blog : `https://${blog}`);
 		setBlankLink(cardBlog);
+		cardBlog.classList.remove('faded');
 		return;
 	}
 	setDefaultLink(cardBlog);
@@ -178,8 +195,9 @@ const setBlog = (blog) => {
 const setTwitter = (username) => {
 	if (username) {
 		cardTwitter.innerText = `@${username}`;
-		cardTwitter.setAttribute('href', `http://twitter.com/${username}`);
+		cardTwitter.setAttribute('href', `${TWITTER_URL_BASE}${username}`);
 		setBlankLink(cardTwitter);
+		cardTwitter.classList.remove('faded');
 		return;
 	}
 	setDefaultLink(cardTwitter);
@@ -188,8 +206,9 @@ const setTwitter = (username) => {
 const setCompany = (company) => {
 	if (company) {
 		cardCompany.innerText = company;
-		cardCompany.setAttribute('href', `https://github.com/${company.slice(1)}`);
+		cardCompany.setAttribute('href', `${GITHUB_URL_BASE}${company.startsWith('@') ? company.slice(1) : company}`);
 		setBlankLink(cardCompany);
+		cardCompany.classList.remove('faded');
 		return;
 	}
 	setDefaultLink(cardCompany);
@@ -201,16 +220,20 @@ const setBlankLink = (element) => {
 };
 
 const setDefaultLink = (element) => {
-	element.innerText = defaultLinkText;
+	element.innerText = DEFAULT_LINK_TEXT;
 	element.setAttribute('href', '#');
 	element.removeAttribute('rel');
 	element.removeAttribute('target');
+	element.classList.add('faded');
 };
 
 // toggle theme button
 const handleToggleBtn = () => {
-	if (document.body.dataset.theme === 'light') document.body.dataset.theme = 'dark';
-	else document.body.dataset.theme = 'light';
+	if (document.body.dataset.theme === 'light') {
+		document.body.dataset.theme = 'dark';
+	} else {
+		document.body.dataset.theme = 'light';
+	}
 
 	setToggleBtnTheme();
 };
@@ -221,10 +244,10 @@ const setToggleBtnTheme = () => {
 
 	if (document.body.dataset.theme === 'light') {
 		toggleBtnText.innerText = 'dark';
-		toggleBtnIcon.src = moonIcon;
+		toggleBtnIcon.src = MOON_ICON;
 	} else {
 		toggleBtnText.innerText = 'light';
-		toggleBtnIcon.src = sunIcon;
+		toggleBtnIcon.src = SUN_ICON;
 	}
 };
 

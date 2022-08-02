@@ -45,6 +45,8 @@
                            placeholder="Search GitHub username..."
                            id="finder-input"
                            class="finder-form__input">
+                    <p id="finder-error"
+                       class="finder-form__error">No results</p>
                     <button type="submit"
                             id="finder-submit"
                             class="button">Search</button>
@@ -99,7 +101,8 @@
                             <li class="links__item">
                                 <img src="./dist/assets/icon-location.svg"
                                      alt="">
-                                <p id="card-location">San Francisco</p>
+                                <p id="card-location"
+                                   class="link">San Francisco</p>
                             </li>
                             <li class="links__item">
                                 <img src="./dist/assets/icon-website.svg"
