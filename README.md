@@ -16,8 +16,6 @@ This is a solution to the [GitHub user search app challenge on Frontend Mentor](
 - Solution URL: [Frontend Mentor Solution Page](https://www.frontendmentor.io/solutions/github-user-search-app-QzTSC77ghU)
 - Live Site URL: [GitHub Pages Site](https://karolbanat.github.io/github-user-search-app/)
 
-## My process
-
 ### Built with
 
 - Semantic HTML5 markup
