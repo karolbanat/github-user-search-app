@@ -37,6 +37,7 @@ body {
 	display: grid;
 	align-content: center;
 	min-height: 100vh;
+	padding-block: var(--spacing-em-900);
 	font-family: var(--ff-primary);
 	background-color: var(--bg-body);
 	color: var(--clr-text);
